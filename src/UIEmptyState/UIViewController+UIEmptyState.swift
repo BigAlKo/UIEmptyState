@@ -139,21 +139,21 @@ extension UIViewController {
         // Set constraints
         let centerX = view.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
         centerX.isActive = true
-        /*var centerY = view.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
-        centerY.isActive = true*/
+        let centerY = view.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+        centerY.isActive = true
 
         // If iOS 11.0 is not available, then adjust the extended layout accordingly using older API
         // and then return
-        var top: NSLayoutConstraint
-        if #available(iOS 11.0, *) {
-            top = view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: source.tableHeaderViewHeight)
-        } else {
-            // Fallback on earlier versions
-            top = view.topAnchor.constraint(equalTo: self.topLayoutGuide.topAnchor, constant: source.tableHeaderViewHeight)
-        }
+        let top = view.topAnchor.constraint(equalTo: self.view.topAnchor, constant: source.tableHeaderViewHeight)
         top.isActive = true
         
-        let bottom = view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0)
+        var bottom: NSLayoutConstraint
+        if #available(iOS 11.0, *) {
+            bottom = view.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
+        } else {
+            // Fallback on earlier versions
+            bottom = view.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.bottomAnchor, constant: 0)
+        }
         bottom.isActive = true
         
         let left = view.leftAnchor.constraint(equalTo: self.view.leftAnchor)
