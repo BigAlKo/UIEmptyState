@@ -143,6 +143,11 @@ public protocol UIEmptyStateDataSource: class {
     var emptyStateViewAnimationDuration: TimeInterval { get }
     
     /**
+    The Size of the table view header, if theres no one, set this to Zero
+    */
+    var tableHeaderViewHeight: CGFloat { get }
+    
+    /**
      The animation function for the views in the empty state view
  
      ***Note:*** This is called whenever the empty state view will show, Default = pop in and fade in of views
