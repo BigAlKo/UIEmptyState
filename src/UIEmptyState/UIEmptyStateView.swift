@@ -168,6 +168,10 @@ open class UIEmptyStateView: UIView {
     /// The spacing in between each of the views
     open var spacing: CGFloat? { didSet { self.contentView.spacing = spacing ?? 0 } }
     
+    // identifier if pointing is allowed
+    open var isScrollEnabled: Bool?
+
+    
     // MARK: - Initializers
     
     /// Initializer for `UIEmptyStateView`,
@@ -345,5 +349,14 @@ open class UIEmptyStateView: UIView {
         view.tag = 3
         return view
     }()
+    
+    open override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        if let isScrollEnabled = self.isScrollEnabled {
+            if isScrollEnabled {
+                return false
+            }
+        }
+        return true
+    }
 }
 
