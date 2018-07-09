@@ -186,6 +186,7 @@ extension UIViewController {
             view.spacing = source.emptyStateViewSpacing
             view.centerYOffset = source.emptyStateViewCenterYOffset
             view.backgroundColor = source.emptyStateBackgroundColor
+            view.isScrollEnabled = source.emptyStateViewCanScroll
             
             // Animate now
             if source.emptyStateViewCanAnimate && source.emptyStateViewAnimatesEverytime {
