@@ -351,12 +351,7 @@ open class UIEmptyStateView: UIView {
     }()
     
     open override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-        if let isScrollEnabled = self.isScrollEnabled {
-            if isScrollEnabled {
-                return false
-            }
-        }
-        return true
+        return false
     }
 }
 
